@@ -183,10 +183,10 @@ async function scrapeData(pages) {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   writeFile(
-    './src/data.tsx',
-    `import {Entity} from './Types';\n\nconst data: Entity[] = ${JSON.stringify(
+    './src/data.json',
+    `${JSON.stringify(
       entities,
-    )};\n\nexport default data;\n`,
+    )}`,
   );
 
   await browserPage.close();
